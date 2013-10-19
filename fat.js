@@ -27,12 +27,10 @@
       }
 
   var Fat = {
-        version : '0.0.1'
+        version : '1.0.2'
       }
 
   Fat.settings = {
-        width: 200,
-        height: 200,
         fontSize: 16,
         color: '#999',
         bg: '#ddd'
@@ -45,8 +43,8 @@
       var props = fat.attributes[0].name.split('&'),
           wh = props[0].toLowerCase().split('x'),
           
-          w  = (wh[0] || set.width) + 'px',
-          h = (wh[1] || set.height) + 'px',
+          w = wh[0] + 'px',
+          h = wh[1] + 'px',
           bg = props[1] || set.bg,
           color = props[2] || set.color,
           txt = props[0] + ' ' + trim(fat.innerText)
@@ -69,8 +67,8 @@
     return Fat
   }
 
-  Fat.setDefaut = function(op){
-    Fat.settings = extend(op, Fat.settings)
+  Fat.setDefault = function(op){
+    Fat.settings = extend(Fat.settings, op)
     return Fat
   }
 
